@@ -1,0 +1,133 @@
+@keyframes logo {
+    from {width: 25px; opacity: 0;}
+    to {width: 475px; opacity: 1;}
+}
+/* step 1 logo animation */
+#logo {
+    animation-name: logo;
+    animation-duration: 5s;
+}
+/* step 2 body font, bg image, back up color */
+body{
+    font-family: "Poppins", serif;
+    background-image: url(../images/concrete_seamless.png);
+    background-color: #f1f1f1;
+}
+/* step 3 styles items within header to use flex  */
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* step 4 sets color and flex orientation for nav links  */
+.nav_links{
+    display: flex;
+    flex-direction: column;
+    color: blue;
+}
+/* step 5 makes visited links have same color */
+.nav_links a:visited{
+    color: blue;
+}
+/* step 6 styles the bg color, border, shape, and padding of header elements that are direct children of card class */
+.card > header {
+    background-color: #288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0px 20px 0px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+/* step 7 sets flex property and initial size for card class */
+.card{
+    display: flex;
+    flex-basis: 450px;
+    flex-direction: column;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    
+}
+/* step 8 styles pricing class to flex with centered rows */
+.pricing{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* step 9 styles images in gallery class with border */
+.gallery img {
+    border: solid 10px #50c7c7;
+    margin: 10px;
+    width: 300px;
+}
+/* step 10 styles gallery class to use flex and center images  */
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (min-width: 900px) {
+    /* step 11 logo on far left nav links far right*/
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .nav_links{
+        flex-direction: row;
+    }
+    /* step 12 centers and specifies the size of the card and pricing classes */
+    .card{
+        flex-basis: 275px;
+    }
+    .pricing {
+        align-items: center;
+    }
+    /* step 13 keeps the first header visible at the top as we scroll down  */
+    body > header{
+        position: sticky;
+        top: 0;
+    }
+}
+@media screen and (prefers-reduced-motion: reduce) {
+    /* step 14 logo not animated if reduced motion is preferred */
+    #logo{
+        animation: none;
+    }   
+}
+@media print {
+    /* step 15 body font Arial with Helvetica backup */
+    /* step 16 background image removed */
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+    /* step 17 stretches nav and space around nav links */
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    nav {
+        align-self: stretch;
+    }
+    /* step 18 elements in pricing class align along bottom */
+    .pricing{
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    /* step 19 starting size and border for card elements */
+    .card{
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+    /* step 20 gallery should be invisible */
+    #gallery, .gallery{
+        display: none;
+    }
+    /* step 21 add thumbs up emoji to second element in list of card class */
+    .card ul li:nth-child(2)::after{
+        content: "👍";
+    }
+}
+    
+    
